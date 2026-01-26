@@ -312,9 +312,6 @@ const createRandomBall = () => {
   }
 };
 
-// 1秒ごとにランダムなボールを生成
-setInterval(createRandomBall, 1000);
-
 // 文字表示設定
 const infoDiv = document.createElement('div');
 infoDiv.style.position = 'absolute';
@@ -335,12 +332,20 @@ document.body.appendChild(infoDiv);
 // --- アニメーションループ ---
 const clock = new THREE.Clock();
 let oldElapsedTime = 0;
+let createFrameCount = 60;
 
 // メインループ
 const tick = () => {
   const elapsedTime = clock.getElapsedTime();
   const deltaTime = elapsedTime - oldElapsedTime;
   oldElapsedTime = elapsedTime;
+
+  // ボール生成までのカウントダウン
+  createFrameCount--;
+  if (createFrameCount <= 0) {
+    createRandomBall();
+    createFrameCount = 60;
+  }
 
   // 衝突による削除処理
   if (ballsToRemove.size > 0) {
