@@ -1,0 +1,8 @@
+body {
+  margin: 0;
+  overflow: hidden; /* Canvas covers the whole screen, prevent scrollbars */
+  font-family: sans-serif;
+}
+canvas {
+  display: block; /* Remove extra vertical space */
+}
