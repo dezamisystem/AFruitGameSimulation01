@@ -255,7 +255,7 @@ const createBallSphere = (position, typeIndex) => {
   // 某果物ゲームのロジック
   // 衝突イベントリスナー
   body.addEventListener('collide', (e) => {
-    // 衝突したボールと次のレベルのボールであるかチェック
+    // 衝突したボールのタイプチェック
     if (e.body.gameType !== undefined && typeIndex < BALL_TYPES.length - 1) {
       if (e.body.gameType === typeIndex) {
         // IDを小さい方で処理する

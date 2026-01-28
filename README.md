@@ -1,4 +1,3 @@
-# README
+# AFruitGameSimulation
 
 © 2025 Dezamisystem
-
